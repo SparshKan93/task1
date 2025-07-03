@@ -2,7 +2,7 @@
 const passport = require('passport');
 require('./passportLocal');
 require('./passportGoogle');
-require('./passportFacebook'); 
+// require('./passportFacebook'); 
 require('./passportGithub');
 
 passport.serializeUser((user, done) => done(null, user.id));

@@ -62,19 +62,20 @@ router.get('/google/callback',
 );
 
 /* ---------- FACEBOOK ---------- */
-router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-router.get(
-  '/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: `${CLIENT_ORIGIN}/login` }),
-  (_, res) => res.redirect(`${CLIENT_ORIGIN}/dashboard`)
-);
+// router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+// router.get(
+//   '/facebook/callback',
+//   passport.authenticate('facebook', { failureRedirect: `${CLIENT_ORIGIN}/login` }),
+//   (_, res) => res.redirect(`${CLIENT_ORIGIN}/dashboard`)
+// );
+
 
 /* ---------- GITHUB ----------- */
 router.get('/github', passport.authenticate('github', { scope: ['user:email'] }));
 router.get(
   '/github/callback',
-  passport.authenticate('github', { failureRedirect: `${CLIENT_ORIGIN}/login` }),
-  (_, res) => res.redirect(`${CLIENT_ORIGIN}/dashboard`)
+  passport.authenticate('github', { failureRedirect: 'http://localhost:3000/login' }),
+  (_, res) => res.redirect('http://localhost:3000/dashboard')
 );
 
 
